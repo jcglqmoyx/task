@@ -1,0 +1,4 @@
+INSERT INTO task.user (id, username, password, wechat_id, email, join_time, quit_time, is_admin, has_quited) VALUES (1, 'Chintsai', null, 'okR9zwLXvpBucGqUXFb13lhmQdCY', null, null, null, 1, 0);
+INSERT INTO task.user (id, username, password, wechat_id, email, join_time, quit_time, is_admin, has_quited) VALUES (2, '晨曦', null, 'okR9zwFWce1BM5GXlId6NOs7DT5Y', null, null, null, 0, 0);
+INSERT INTO task.user (id, username, password, wechat_id, email, join_time, quit_time, is_admin, has_quited) VALUES (3, 'irascible', null, 'okR9zwFLpc6R8LoxZ2zQLiCMlZ7Y', null, null, null, 0, 0);
+INSERT INTO task.user (id, username, password, wechat_id, email, join_time, quit_time, is_admin, has_quited) VALUES (4, '英语小废材', null, 'okR9zwNpgYY9Nj8CVAvOkYe60rCU', null, null, null, 0, 0);
