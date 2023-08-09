@@ -4,6 +4,7 @@ import com.study.task.entity.Record;
 import com.study.task.entity.User;
 import com.study.task.service.RecordService;
 import com.study.task.service.UserService;
+import io.micrometer.common.util.StringUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -78,7 +79,11 @@ public class MsgUtils {
             reply = "不支持此类型的消息";
         } else if (map.get("Content").startsWith("注册")) {
             String username = map.get("Content").substring(3);
-            if (userService.getByUsername(username) != null) {
+            if (StringUtils.isEmpty(username)) {
+                reply = "用户名不能为空";
+            } else if (username.length() > 32) {
+                reply = "用户名长度不能超过32";
+            } else if (userService.getByUsername(username) != null) {
                 reply = "用户名已存在，请重新输入";
             } else if (userService.getByWechatId(map.get("FromUserName")) != null) {
                 reply = "用户已注册, 无需重复注册";
