@@ -27,4 +27,4 @@ git:
 
 logging:
   file:
-    name: app.log
+    name: log/app.log
