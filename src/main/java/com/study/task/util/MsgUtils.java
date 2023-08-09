@@ -77,7 +77,7 @@ public class MsgUtils {
         String reply;
         if (!messageTypeSupported) {
             reply = "不支持此类型的消息";
-        } else if (map.get("Content").startsWith("注册")) {
+        } else if (map.get("Content").startsWith("注册 ") || map.get("Content").startsWith("注册 ")) {
             String username = map.get("Content").substring(3);
             if (StringUtils.isEmpty(username)) {
                 reply = "用户名不能为空";
