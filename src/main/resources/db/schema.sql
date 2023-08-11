@@ -24,7 +24,7 @@ create table record
         primary key,
     user_id int          not null,
     time    datetime     null,
-    url     varchar(128) not null
+    url     varchar(256) not null
 );
 
 create index record_time_index
