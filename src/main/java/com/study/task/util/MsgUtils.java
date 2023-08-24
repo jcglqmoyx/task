@@ -100,7 +100,11 @@ public class MsgUtils {
         } else if (map.get("Content").startsWith("admin ")) {
             String username = map.get("FromUserName");
             User user = userService.getByUsername(username);
-            if (!user.isAdmin()) {
+            if (user == null) {
+                reply = "用户尚未注册";
+            } else if (user.isHasQuited()) {
+                reply = "用户尚未激活";
+            } else if (!user.isAdmin()) {
                 reply = "你不是管理员";
             } else {
                 String command = map.get("Content").substring(6);
