@@ -105,8 +105,7 @@ public class MsgUtils {
             } else {
                 String command = map.get("Content").substring(6);
                 if (command.startsWith("activate ")) {
-                    String wechatId = command.substring(9);
-                    User userToActivate = userService.getByWechatId(wechatId);
+                    User userToActivate = userService.getByUsername(command.substring(9));
                     if (userToActivate == null) {
                         reply = "用户不存在";
                     } else if (!userToActivate.isHasQuited()) {
@@ -129,7 +128,7 @@ public class MsgUtils {
                     List<User> users = userService.list();
                     StringBuilder builder = new StringBuilder();
                     for (User u : users) {
-                        builder.append(u.getUsername()).append("\t\t").append(u.getWechatId()).append("\t\t").append(u.isAdmin() ? "管理员" : "普通用户").append("\t\t").append(u.isHasQuited() ? "已注销" : "已激活").append("\n");
+                        builder.append(u.getUsername()).append("\t\t").append(u.isHasQuited() ? "已注销" : "已激活").append("\n");
                     }
                     reply = builder.toString();
                 } else {
