@@ -7,6 +7,8 @@ import com.study.task.service.RecordService;
 import com.study.task.service.UserService;
 import com.study.task.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -56,6 +58,7 @@ public class ScheduledTask {
     }
 
     @Scheduled(cron = "0 0 0 * * *")
+    @EventListener(ApplicationReadyEvent.class)
     private void updateTime() {
         long timestamp = new Date().getTime();
         Calendar calendar = Calendar.getInstance();
