@@ -112,7 +112,7 @@ public class MsgUtils {
                         reply = "用户已激活";
                     } else {
                         userToActivate.setHasQuited(false);
-                        userService.updateById(user);
+                        userService.updateById(userToActivate);
                         reply = "用户激活成功";
                     }
                 } else if (command.startsWith("delete ")) {
