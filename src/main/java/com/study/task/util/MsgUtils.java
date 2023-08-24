@@ -116,8 +116,7 @@ public class MsgUtils {
                         reply = "用户激活成功";
                     }
                 } else if (command.startsWith("delete ")) {
-                    String wechatId = command.substring(7);
-                    User userToDelete = userService.getByWechatId(wechatId);
+                    User userToDelete = userService.getByUsername(command.substring(7));
                     if (userToDelete == null) {
                         reply = "用户不存在";
                     } else {
