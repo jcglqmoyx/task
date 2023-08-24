@@ -99,7 +99,7 @@ public class MsgUtils {
             }
         } else if (map.get("Content").startsWith("admin ")) {
             String username = map.get("FromUserName");
-            User user = userService.getByWechatId(username);
+            User user = userService.getByUsername(username);
             if (!user.isAdmin()) {
                 reply = "你不是管理员";
             } else {
