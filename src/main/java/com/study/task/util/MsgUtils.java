@@ -99,7 +99,7 @@ public class MsgUtils {
             }
         } else if (map.get("Content").startsWith("admin ")) {
             String username = map.get("FromUserName");
-            User user = userService.getByUsername(username);
+            User user = userService.getByWechatId(username);
             if (user == null) {
                 reply = "用户尚未注册";
             } else if (user.isHasQuited()) {

@@ -2,6 +2,7 @@ package com.study.task.util;
 
 import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
@@ -10,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 public class XMLUtils {
     private static final SAXReader saxReader = new SAXReader();
 
@@ -24,7 +26,7 @@ public class XMLUtils {
                 map.put(element.getName(), element.getStringValue());
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
         }
         return map;
     }
