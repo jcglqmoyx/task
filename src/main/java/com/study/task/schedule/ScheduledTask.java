@@ -71,7 +71,7 @@ public class ScheduledTask {
         startOfTheDayBeforeYesterday = timestamp - 2 * 24 * 60 * 60 * 1000;
     }
 
-    @Scheduled(cron = "0 0 20 * * *")
+    @Scheduled(cron = "0 1 0 * * *")
     private void generateReport() throws IOException {
         List<Report> reports = dbQuery();
 
